@@ -1,3 +1,65 @@
 body {
   background-color: #222222;
+  color: #CCCCCC;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.top {
+  width: 100%;
+}
+
+.add-task {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  font-size: 24px;
+  width: 100%;
+}
+
+.add-task:hover {
+  opacity: 1;
+}
+
+.bottom {
+  width: calc(100% - 8px);
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.side-panel {
+  background-color: #111111;
+  height: 92vh;
+  padding: 8px;
+  font-size: 24px;
+  min-width: 142px;
+  box-shadow: 2px 0 5px -2px black;
+}
+
+.add-project {
+  position: absolute;
+  background-color: #555;
+  color: white;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  font-size: 24px;
+  bottom: 30%;
+}
+
+.content{
+  width: calc(100% - 8px);
+  padding: 8px;
+  height: 92vh;
 }
