@@ -4,7 +4,7 @@ class Project {
   #projects;
   #title;
   constructor(title) {
-    this.projects = new Set();
+    this.projects = {};
     this.title = title;
   }
 
@@ -17,11 +17,27 @@ class Project {
   }
 
   add(item) {
-    this.projects.add(item);
+    if(this.projects[item] === undefined) {
+      this.projects[item] = item;
+      return true;
+    }
+    return false;
   }
 
   delete(item) {
-    this.projects.delete(item);
+    if(this.projects[item] !== undefined) {
+      delete this.projects[item];
+      return true;
+    }
+    return false;
+  }
+
+  getValue(item) {
+    return this.projects[item];
+  }
+
+  getObj() {
+    return this.projects;
   }
 
   toString() {

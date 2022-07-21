@@ -28,7 +28,6 @@ function intitalSetUp() {
   addTask.textContent = "Add Task";
   addProject.textContent = "Add Project";
   sidePanel.textContent = "Projects:"
-  content.textContent = "To-Do List:"
 
   top.appendChild(addTask);
   sidePanel.appendChild(projectList);
