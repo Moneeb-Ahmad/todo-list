@@ -9,6 +9,7 @@ module.exports = {
     todo: './src/todo.js',
     constants: './src/constants.js',
     project: './src/project.js',
+    domCreation: './src/domCreation.js',
   },
   devtool: 'inline-source-map',
   plugins: [

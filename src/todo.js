@@ -45,8 +45,12 @@ class ToDo {
   }
 
   toString() {
-    return `Title: ${this.title}, Description: ${this.description}, ` +
-            `Due-Date: ${this.dueDate}, Priority: ${this.priority}`;
+    return `${this.title},${this.description},` +
+            `${this.dueDate},${this.priority}`;
+  }
+  toHTML() {
+    return `<div>${this.title}</div><div>${this.description}</div>`+
+           `<div>${this.dueDate}</div><div>${this.priority}</div>`; 
   }
 }
 

@@ -31,6 +31,11 @@ body {
   opacity: 1;
 }
 
+.add-task:active {
+  transform: scale(0.95);
+  opacity: 1;
+}
+
 .bottom {
   width: calc(100% - 8px);
   display: grid;
@@ -46,6 +51,10 @@ body {
   box-shadow: 2px 0 5px -2px black;
 }
 
+.project-list  {
+  margin-top: 8px;
+}
+
 .add-project {
   position: absolute;
   background-color: #555;
@@ -58,8 +67,71 @@ body {
   bottom: 30%;
 }
 
+.add-project:hover {
+  opacity: 1;
+}
+
+.add-project:active {
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+
 .content{
   width: calc(100% - 8px);
   padding: 8px;
   height: 92vh;
+  font-size: 24px;
+}
+
+.project-list > div {
+  margin-left: 16px;
+  margin-bottom: 8px;
+  width: fit-content;
+}
+
+.project-list > div:hover {
+  color: #EEEEEE;
+  font-weight: bolder;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.content > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-style: solid;
+}
+
+.content > div > div {
+  display: flex;
+  flex-grow: 1;
+  width: 0;
+}
+
+.btn-div {
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.edit, .delete {
+  background-color: #555;
+  color: white;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  font-size: 18px;
+}
+
+.edit:hover, .delete:hover {
+  opacity: 1;
+}
+
+.edit:active, .delete:active {
+  opacity: 1;
+  transform: scale(0.9);
 }
