@@ -146,14 +146,17 @@ body {
   z-index: 9;
   background-color: #444444;
   color: #DDDDDD;
+  padding: 8px;
 }
 
 .pop-ups > div {
   display: none;
+  width: fit-content;
+
 }
 
 .form-container input[type=text], .form-container input[type=date] {
-  width: 93%;
+  width: 88%;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
@@ -166,4 +169,39 @@ body {
   flex-direction: row;
   margin: 5px 0 22px 0;
   gap: 16px;
+}
+
+.btn-cancel-task,
+.btn-add-task,
+.btn-cancel-project,
+.btn-add-project,
+.btn-cancel-edit,
+.btn-add-edit {
+  background-color: #222222;
+  color: white;
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  font-size: 18px;
+  margin-left: 12px;
+}
+
+.btn-cancel-task:hover,
+.btn-add-task:hover,
+.btn-cancel-project:hover,
+.btn-add-project:hover,
+.btn-cancel-edit:hover,
+.btn-add-edit:hover {
+  opacity: 1;
+}
+
+.btn-cancel-task:active,
+.btn-add-task:active,
+.btn-cancel-project:active,
+.btn-add-project:active,
+.btn-cancel-edit:active,
+.btn-add-edit:active {
+  opacity: 1;
+  transform: scale(0.9);
 }

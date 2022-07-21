@@ -75,10 +75,42 @@ function createForms(op) {
       </form>`;
       break;
     case 2:
-      element.classList.add('.project-form');
+      element.classList.add('project-form');
+      element.innerHTML =
+      `<form AcTION="" METHOD="GET" class="form-container">
+        <h1>Add a New Project</h1>
+        <label for="title"><b>Title*</b></label>
+        <input type="text" name="title" required>
+        <button type="button" class="btn-add-project">Add</button>
+        <button type="button" class="btn-cancel-project">Close</button>
+      </form>`;
       break;
     case 3:
-      element.classList.add('.edit-task-form');
+      element.classList.add('edit-task-form');
+      element.innerHTML =
+      `<form AcTION="" METHOD="GET" class="form-container">
+        <h1>Edit Task</h1>
+        <label for="title"><b>Title*</b></label>
+        <input type="text" name="title" required>
+        <label for="desc"><b>Description*</b></label>
+        <input type="text" name="desc" required>
+        <label for="task-date"><b>Due Date*</b></label>
+        <input type="date" name="task-date" required>
+        <label for="prior"><b>Priority*</b></label>
+        <div class="priority-selectors">
+          <div>
+            <input type="radio" name="prior" value="Low" required> Low
+          </div>
+          <div>
+            <input type="radio" name="prior" value="Medium" required> Medium
+          </div>
+          <div>
+            <input type="radio" name="prior" value="High" required> High
+          </div>
+        </div>
+        <button type="button" class="btn-add-edit">Add</button>
+        <button type="button" class="btn-cancel-edit">Close</button>
+      </form>`;
       break;
     default:
       break;
