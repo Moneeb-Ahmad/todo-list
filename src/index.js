@@ -20,6 +20,7 @@ const todo = new ToDo("Work","Finish thing",`${dt}`,Constants.HIGH_PRIORITY);
 const todo2 = new ToDo("New guy","New task",`${dt}`,Constants.HIGH_PRIORITY);
 let dom = new DomCreation();
 let projSet = new Project("Project List");
+let editT = null;
 p.add(todo);
 p.add(todo2);
 projSet.add(p);
@@ -27,6 +28,8 @@ projSet.add(p);
 projectList.appendChild(dom.createDiv(p,1));
 content.appendChild(dom.createDiv(todo,2));
 content.appendChild(dom.createDiv(todo2,2));
+
+updateTaskEventListeners();
 
 function removeAllChildrenFromContent() {
   while (content.firstChild) {
@@ -52,12 +55,24 @@ function addTaskToCurrentProject() {
   if(noti) {
     closeFormTask();
     displayContentsTaskUpdate();
+    updateTaskEventListeners();
   }
   else {
     alert("That Tasks Already Exists in this project!");
     closeFormTask();
   }
 
+}
+
+function updateTaskEventListeners() {
+  let len = content.childElementCount;
+  const contentChildren = content.children;
+  for(let i = 0; i < len; i++) {
+    contentChildren.item(i).children.item(4).firstChild.removeEventListener('click',openFormEdit);
+    contentChildren.item(i).children.item(4).lastChild.removeEventListener('click',deleteTask);
+    contentChildren.item(i).children.item(4).firstChild.addEventListener('click',openFormEdit);
+    contentChildren.item(i).children.item(4).lastChild.addEventListener('click',deleteTask);
+  }
 }
 
 function displayContentsTaskUpdate() {
@@ -84,7 +99,6 @@ function openFormProject() {
 function addToProjectSet() {
   let newPText = document.querySelector('.project-form').firstChild.title.value;
   let newP = new Project(newPText);
-  console.log(newP);
   projSet.add(newP);
   projectList.appendChild(dom.createDiv(projSet.getValue(newP),1));
   updateProjectEventListeners();
@@ -116,11 +130,38 @@ function closeFormProject() {
   document.querySelector(".pop-ups").style.display = "none";
 }
 /*******Edits********/
-function openFormEdit() {
+function openFormEdit(e) {
+  const parentText = e.target.parentElement.parentElement.innerText
+  const arr = parentText.replaceAll('\n',',').split(",");
+  editT = new ToDo(arr[0],arr[1],arr[2],arr[3]);
+  /*console.log(currentProject.getValue(existingT) instanceof ToDo);*/
   document.querySelector(".pop-ups").style.display = "inline";
   document.querySelector(".edit-task-form").style.display = "inline";
   document.querySelector(".btn-cancel-edit").addEventListener('click',closeFormEdit);
-  document.querySelector(".btn-add-edit").addEventListener('click',closeFormEdit);
+  document.querySelector(".btn-add-edit").addEventListener('click',updateToDoItem);
+}
+
+function updateToDoItem() {
+  let newTitle = document.querySelector('.edit-task-form').firstChild.title.value;
+  let newDesc = document.querySelector('.edit-task-form').firstChild.desc.value;
+  let newTaskDate = document.querySelector('.edit-task-form').firstChild['task-date'].value
+  let newPrior = document.querySelector('.edit-task-form').firstChild.prior.value;
+  let newT = new ToDo(newTitle,newDesc,newTaskDate,newPrior);
+  if(newT.toString() === editT.toString()) {
+    closeFormEdit();
+    alert("That exact task already exists in this project!");
+  }
+  else {
+    let temp = currentProject.getValue(editT);
+    temp.setTitle(newT.getTitle());
+    temp.setDescription(newT.getDescription());
+    temp.setDueDate(newT.getDueDate());
+    temp.setPriority(newT.getPriority());
+    currentProject.delete(editT);
+    currentProject.add(temp);
+    closeFormEdit();
+    displayContentsTaskUpdate();
+  }
 }
 
 function closeFormEdit() {
