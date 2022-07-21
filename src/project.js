@@ -32,7 +32,7 @@ class Project {
       ind++;
     });
     return res;*/
-    return `Project: ${this.title}`;
+    return `${this.title}`;
   }
 }
 

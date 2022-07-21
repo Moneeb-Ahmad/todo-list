@@ -102,7 +102,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  margin-bottom: 8px;
+  margin-top: 8px;
   border-style: solid;
 }
 
@@ -134,4 +134,36 @@ body {
 .edit:active, .delete:active {
   opacity: 1;
   transform: scale(0.9);
+}
+
+.pop-ups {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  background-color: #444444;
+  color: #DDDDDD;
+}
+
+.pop-ups > div {
+  display: none;
+}
+
+.form-container input[type=text], .form-container input[type=date] {
+  width: 93%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background-color: #111111;
+  color: #DDDDDD;
+}
+
+.priority-selectors {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0 22px 0;
+  gap: 16px;
 }
