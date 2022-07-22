@@ -123,6 +123,7 @@ function displayContentsEvent(e) {
   for(const to in proj.getObj()) {
     content.appendChild(dom.createDiv(proj.getValue(to),2));
   }
+  updateTaskEventListeners();
 }
 
 function closeFormProject() {
@@ -165,6 +166,7 @@ function updateToDoItem() {
     currentProject.add(temp);
     closeFormEdit();
     displayContentsTaskUpdate();
+    updateTaskEventListeners();
   }
 }
 
@@ -175,8 +177,13 @@ function closeFormEdit() {
   document.querySelector(".pop-ups").style.display = "none";
 }
 /*******Delete********/
-function deleteTask() {
-
+function deleteTask(e) {
+  const parentText = e.target.parentElement.parentElement.innerText
+  const arr = parentText.replaceAll('\n',',').split(",");
+  let delT = new ToDo(arr[0],arr[1],arr[2],arr[3]);
+  currentProject.delete(delT);
+  displayContentsTaskUpdate();
+  updateTaskEventListeners();
 }
 
 const edit = document.querySelector('.edit');
