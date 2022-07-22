@@ -3,7 +3,7 @@ const LOW_PRIORITY = "Low";
 const MED_PRIORITY = "Medium";
 const HIGH_PRIORITY = "High";
 
-class Constants{
+class Constants {
   static get LOW_PRIORITY() {
     return LOW_PRIORITY;
   }
@@ -17,4 +17,6 @@ class Constants{
   }
 }
 
-export {Constants};
+export {
+  Constants
+};

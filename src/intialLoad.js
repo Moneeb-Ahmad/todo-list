@@ -49,7 +49,7 @@ function createForms(op) {
     case 1:
       element.classList.add('task-form');
       element.innerHTML =
-      `<form AcTION="" METHOD="GET" class="form-container">
+        `<form AcTION="" METHOD="GET" class="form-container">
         <h1>Add a New Task</h1>
         <label for="title"><b>Title*</b></label>
         <input type="text" name="title" required>
@@ -76,7 +76,7 @@ function createForms(op) {
     case 2:
       element.classList.add('project-form');
       element.innerHTML =
-      `<form AcTION="" METHOD="GET" class="form-container">
+        `<form AcTION="" METHOD="GET" class="form-container">
         <h1>Add a New Project</h1>
         <label for="title"><b>Title*</b></label>
         <input type="text" name="title" required>
@@ -87,7 +87,7 @@ function createForms(op) {
     case 3:
       element.classList.add('edit-task-form');
       element.innerHTML =
-      `<form AcTION="" METHOD="GET" class="form-container">
+        `<form AcTION="" METHOD="GET" class="form-container">
         <h1>Edit Task</h1>
         <label for="title"><b>Title*</b></label>
         <input type="text" name="title" required>
@@ -117,5 +117,6 @@ function createForms(op) {
   return element;
 }
 export {
-  intitalSetUp as default
+  intitalSetUp as
+  default
 };

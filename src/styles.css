@@ -51,7 +51,7 @@ body {
   box-shadow: 2px 0 5px -2px black;
 }
 
-.project-list  {
+.project-list {
   margin-top: 8px;
 }
 
@@ -76,28 +76,27 @@ body {
   opacity: 1;
 }
 
-
-.content{
+.content {
   width: calc(100% - 8px);
   padding: 8px;
   height: 92vh;
   font-size: 24px;
 }
 
-.project-list > div {
+.project-list>div {
   margin-left: 16px;
   margin-bottom: 8px;
   width: fit-content;
 }
 
-.project-list > div:hover {
+.project-list>div:hover {
   color: #EEEEEE;
   font-weight: bolder;
   transform: scale(1.1);
   cursor: pointer;
 }
 
-.content > div {
+.content>div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -106,7 +105,7 @@ body {
   border-style: solid;
 }
 
-.content > div > div {
+.content>div>div {
   display: flex;
   flex-grow: 1;
   width: 0;
@@ -149,10 +148,9 @@ body {
   padding: 8px;
 }
 
-.pop-ups > div {
+.pop-ups>div {
   display: none;
   width: fit-content;
-
 }
 
 .form-container input[type=text], .form-container input[type=date] {
