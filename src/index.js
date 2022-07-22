@@ -48,7 +48,9 @@ function openFormTask() {
 function addTaskToCurrentProject() {
   let newTitle = document.querySelector('.task-form').firstChild.title.value;
   let newDesc = document.querySelector('.task-form').firstChild.desc.value;
-  let newTaskDate = document.querySelector('.task-form').firstChild['task-date'].value;
+  let newTaskDateTemp = document.querySelector('.task-form').firstChild['task-date'].value;
+  let arr = newTaskDateTemp.split('-');
+  let newTaskDate =  format(new Date(Number(arr[0]),(Number(arr[1]) - 1),Number(arr[2])), 'MMM-dd');
   let newPrior = document.querySelector('.task-form').firstChild.prior.value;
   let newT = new ToDo(newTitle,newDesc,newTaskDate,newPrior);
   let noti = currentProject.add(newT);
@@ -144,7 +146,9 @@ function openFormEdit(e) {
 function updateToDoItem() {
   let newTitle = document.querySelector('.edit-task-form').firstChild.title.value;
   let newDesc = document.querySelector('.edit-task-form').firstChild.desc.value;
-  let newTaskDate = document.querySelector('.edit-task-form').firstChild['task-date'].value
+  let newTaskDateTemp = document.querySelector('.edit-task-form').firstChild['task-date'].value
+  let arr = newTaskDateTemp.split('-');
+  let newTaskDate =  format(new Date(Number(arr[0]),(Number(arr[1]) - 1),Number(arr[2])), 'MMM-dd');
   let newPrior = document.querySelector('.edit-task-form').firstChild.prior.value;
   let newT = new ToDo(newTitle,newDesc,newTaskDate,newPrior);
   if(newT.toString() === editT.toString()) {
